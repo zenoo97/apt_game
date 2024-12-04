@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import styles from './GamePage.module.css';
 import GamePageModal from '../components/gapePage/GamePageModal';
+import ApartmentAnimation from '../components/ApartmentAnimation';
 export default function GamePage() {
 	const [open, setOpen] = useState(true);
 	const [result, setResult] = useState();
 	const [nickName, setNickName] = useState();
+	const [gameStart, setGameStart] = useState(false);
+	const gameHandler = () => {
+		setGameStart(true);
+	};
 	return (
 		<div className={styles.container}>
 			<div>
@@ -18,13 +23,15 @@ export default function GamePage() {
 					nickName={nickName}
 				/>
 			)}
-			<div>{result}</div>
+			<div>{gameStart && <ApartmentAnimation />}</div>
 			<div className={styles.users}>
-				<div className={styles.left}></div>
+				<div className={styles.left}>
+					<div>{result}</div>
+				</div>
 				<div className={styles.right}></div>
 			</div>
 			<div>
-				<button>게임시작</button>
+				<button onClick={gameHandler}>게임시작</button>
 			</div>
 		</div>
 	);

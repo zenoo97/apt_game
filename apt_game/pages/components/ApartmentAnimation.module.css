@@ -1,0 +1,45 @@
+.container {
+    text-align: center;
+    position: absolute;
+    left: 32%;
+    top: 22%;
+    
+    
+}
+
+.hands {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hand {
+    width: 100px; /* 손의 너비 */
+    height: 20px; /* 손의 높이 */
+    background-color: #ffcc00; /* 손 색상 */
+    border-radius: 10px; /* 손 모양을 둥글게 */
+    margin: 0 10px; /* 손 사이의 간격을 줄임 */
+    transition: transform 0.5s ease; /* 애니메이션 효과 */
+    position: relative; /* 손 위치 조정 */
+}
+
+.left {
+    transform: rotate(30deg); /* 왼손 각도 조정 */
+}
+
+.right {
+    transform: rotate(-30deg); /* 오른손 각도 조정 */
+}
+
+.up {
+    transform: translateY(-20px) translateX(-10px); /* 위로 이동하면서 약간 왼쪽으로 이동 */
+}
+
+.down {
+    transform: translateY(20px) translateX(10px); /* 아래로 이동하면서 약간 오른쪽으로 이동 */
+}
+
+.text {
+    font-size: 24px;
+    font-weight: bold;
+}
