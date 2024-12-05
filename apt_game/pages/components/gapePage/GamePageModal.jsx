@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import styles from './GamePageModal.module.css';
-import { useRouter } from 'next/router';
+
 export default function GamePageModal({
 	setOpen,
 	setNickName,
