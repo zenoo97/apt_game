@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import styles from './Modal.module.css';
 import { useRouter } from 'next/router';
-export default function Modal({ setMakeRoom }) {
+import { v4 as uuidv4 } from 'uuid';
+
+export default function Modal({ setMakeRoom, gameHandler }) {
 	const route = useRouter();
 	const [count, setCount] = useState();
+
 	const modalHandler = () => {
 		setMakeRoom(false);
 	};
-	const gameHandler = () => {
-		setMakeRoom(false);
-		route.push('/gamePage');
+
+	const createRoom = () => {
+		const newRoomId = uuidv4(); // 새로운 방 ID 생성
+		gameHandler(newRoomId, count); // MakeRoom의 gameHandler 호출
+		modalHandler(); // 모달 닫기
+		route.push(`/gamePage/${newRoomId}`); // 새로운 페이지로 이동
 	};
-	console.log(count);
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.modalContainer}>
@@ -24,7 +30,7 @@ export default function Modal({ setMakeRoom }) {
 
 				<div></div>
 				<div className={styles.btn}>
-					<button onClick={gameHandler}>방만들기</button>
+					<button onClick={createRoom}>방 만들기</button>
 					<button onClick={modalHandler}>닫기</button>
 				</div>
 			</div>

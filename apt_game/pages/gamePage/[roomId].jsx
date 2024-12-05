@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './GamePage.module.css';
-import GamePageModal from '../components/gapePage/GamePageModal';
+import GamePageModal from '../components/gamePage/GamePageModal';
 import ApartmentAnimation from '../components/ApartmentAnimation';
 export default function GamePage() {
 	const [open, setOpen] = useState(true);
@@ -10,6 +10,10 @@ export default function GamePage() {
 	const gameHandler = () => {
 		setGameStart(true);
 	};
+	const currentUrl = window.location.href;
+	const parcingValue = currentUrl.split('/')[4];
+
+	useEffect(() => {}, []);
 	return (
 		<div className={styles.container}>
 			<div>
