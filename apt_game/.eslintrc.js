@@ -1,5 +1,9 @@
 module.exports = {
-	extends: ['next/core-web-vitals', 'plugin:prettier/recommended'],
+	extends: [
+		'next/core-web-vitals',
+		'plugin:prettier/recommended',
+		'eslint:recommended',
+	],
 	// plugins: ['prettier', 'unused-imports'],
 	plugins: ['prettier'],
 	rules: {
@@ -13,6 +17,7 @@ module.exports = {
 			// 아래 규칙들은 개인 선호에 따라 prettier 문법 적용
 			// https://prettier.io/docs/en/options.html
 			{
+				endOfLine: 'auto',
 				singleQuote: true,
 				semi: true,
 				useTabs: true,
