@@ -2,22 +2,33 @@ import React, { useEffect, useState } from 'react';
 import styles from './GamePage.module.css';
 import GamePageModal from '../components/gamePage/GamePageModal';
 import ApartmentAnimation from '../components/ApartmentAnimation';
+import ShareBtn from '../components/ShareBtn';
+
 export default function GamePage() {
 	const [open, setOpen] = useState(true);
 	const [result, setResult] = useState();
 	const [nickName, setNickName] = useState();
 	const [gameStart, setGameStart] = useState(false);
+	const [currentUrl, setCurrentUrl] = useState('');
+	const [parcingValue, setParcingValue] = useState('');
+
 	const gameHandler = () => {
 		setGameStart(true);
 	};
-	const currentUrl = window.location.href;
-	const parcingValue = currentUrl.split('/')[4];
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const url = window.location.href;
+			setCurrentUrl(url);
+			const value = url.split('/')[4];
+			setParcingValue(value);
+		}
+	}, []);
+
 	return (
 		<div className={styles.container}>
 			<div>
-				<button>초대링크 보내기</button>
+				<ShareBtn />
 			</div>
 			{open && (
 				<GamePageModal
@@ -36,6 +47,7 @@ export default function GamePage() {
 			</div>
 			<div>
 				<button onClick={gameHandler}>게임시작</button>
+				<button>게임끝내기</button>
 			</div>
 		</div>
 	);
