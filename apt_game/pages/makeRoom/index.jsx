@@ -5,10 +5,10 @@ import { supabase } from '../utils/supabase';
 
 export default function MakeRoom() {
 	const [makeRoom, setMakeRoom] = useState(false);
-	const [roomId, setRoomId] = useState(null); // 초기값을 null로 설정
+	// const [roomId, setRoomId] = useState(null); // 초기값을 null로 설정
 
 	const gameHandler = async (newRoomId, count) => {
-		const { data, error } = await supabase
+		const { error } = await supabase
 			.from('gameRoom')
 			.insert([{ room_id: newRoomId, max_users: count }])
 			.select();
@@ -18,7 +18,7 @@ export default function MakeRoom() {
 			return; // 에러 처리
 		}
 
-		setRoomId(newRoomId); // 방 ID 설정
+		// setRoomId(newRoomId); // 방 ID 설정
 		setMakeRoom(true); // 모달 열기
 	};
 

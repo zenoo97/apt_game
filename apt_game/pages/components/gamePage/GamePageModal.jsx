@@ -4,19 +4,20 @@ import styles from './GamePageModal.module.css';
 export default function GamePageModal({
 	setOpen,
 	setNickName,
-	setResult,
+	// setResult,
 	nickName,
 	parcingValue,
 }) {
 	const postNickName = async () => {
-		const { data, error } = await supabase
+		// const { data, error } =
+		await supabase
 			.from('users')
 			.insert([{ nickname: nickName, roomId: parcingValue }])
 			.select();
 	};
 	const modalHandler = () => {
 		setOpen(false);
-		setResult(nickName);
+		// setResult(nickName);
 		postNickName();
 	};
 	return (
