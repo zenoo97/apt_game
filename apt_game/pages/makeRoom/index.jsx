@@ -12,14 +12,13 @@ export default function MakeRoom() {
 			.from('gameRoom')
 			.insert([{ room_id: newRoomId, max_users: count }])
 			.select();
-		console.log(data);
+
 		if (error) {
 			console.error('Error creating room:', error);
 			return; // 에러 처리
 		}
 
 		setRoomId(newRoomId); // 방 ID 설정
-		console.log(roomId);
 		setMakeRoom(true); // 모달 열기
 	};
 

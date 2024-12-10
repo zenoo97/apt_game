@@ -7,10 +7,10 @@ import { supabase } from '../utils/supabase';
 
 export default function GamePage() {
 	const [open, setOpen] = useState(true);
-	// const [result, setResult] = useState();
+	const [result, setResult] = useState();
 	const [nickName, setNickName] = useState();
 	const [gameStart, setGameStart] = useState(false);
-	// const [currentUrl, setCurrentUrl] = useState('');
+	const [currentUrl, setCurrentUrl] = useState('');
 	const [parcingValue, setParcingValue] = useState('');
 	const [showAnimation, setShowAnimation] = useState(false);
 	const [showModal, setShowModal] = useState(false);
@@ -34,7 +34,7 @@ export default function GamePage() {
 
 		if (typeof window !== 'undefined') {
 			const url = window.location.href;
-			// setCurrentUrl(url);
+			setCurrentUrl(url);
 			const value = url.split('/')[4];
 			setParcingValue(value);
 		}
@@ -90,7 +90,7 @@ export default function GamePage() {
 				<GamePageModal
 					setOpen={setOpen}
 					setNickName={setNickName}
-					// setResult={setResult}
+					setResult={setResult}
 					nickName={nickName}
 					parcingValue={parcingValue}
 				/>
