@@ -3,7 +3,7 @@ import styles from './GamePage.module.css';
 import GamePageModal from '../components/gamePage/GamePageModal';
 import ApartmentAnimation from '../components/ApartmentAnimation';
 import FloorSelectModal from '../components/gamePage/FloorSelectModal';
-import { supabase } from '../utils/supabase';
+import { supabase } from '../../utils/supabase';
 
 export default function GamePage() {
 	const [open, setOpen] = useState(true);

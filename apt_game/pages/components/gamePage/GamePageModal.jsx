@@ -1,4 +1,4 @@
-import { supabase } from '../../utils/supabase';
+import { supabase } from '../../../utils/supabase';
 import styles from './GamePageModal.module.css';
 
 export default function GamePageModal({
