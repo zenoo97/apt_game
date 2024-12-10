@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './MakeRoom.module.css';
 import Modal from '../components/makeRoom/Modal';
 import { supabase } from '../utils/supabase';
+import ApartmentAnimation from '../components/ApartmentAnimation';
 
 export default function MakeRoom() {
 	const [makeRoom, setMakeRoom] = useState(false);
@@ -27,6 +28,7 @@ export default function MakeRoom() {
 			<div>
 				<button onClick={() => setMakeRoom(true)}>방 만들기</button>
 			</div>
+			{/* <ApartmentAnimation /> */}
 			{makeRoom && (
 				<Modal setMakeRoom={setMakeRoom} gameHandler={gameHandler} />
 			)}

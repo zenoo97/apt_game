@@ -26,3 +26,12 @@
     height: 500px;
     background-color: blue;
 }
+.animation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.floorInfo{
+    font-size: 30px;
+    font-weight: bold;
+}

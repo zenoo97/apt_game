@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './GamePage.module.css';
 import GamePageModal from '../components/gamePage/GamePageModal';
 import ApartmentAnimation from '../components/ApartmentAnimation';
-import ShareBtn from '../components/ShareBtn';
+import FloorSelectModal from '../components/gamePage/FloorSelectModal';
+// import ShareBtn from '../components/ShareBtn';
 
 export default function GamePage() {
 	const [open, setOpen] = useState(true);
@@ -11,9 +12,18 @@ export default function GamePage() {
 	const [gameStart, setGameStart] = useState(false);
 	const [currentUrl, setCurrentUrl] = useState('');
 	const [parcingValue, setParcingValue] = useState('');
-
+	const [showAnimation, setShowAnimation] = useState(false); // 애니메이션 표시 상태 추가
+	const [showModal, setShowModal] = useState(false);
+	const [floor, setFloor] = useState();
+	const [confirmFloor, setConfirmFloor] = useState();
+	const [gameStatus, setGameStatus] = useState(false);
 	const gameHandler = () => {
 		setGameStart(true);
+		setShowAnimation(true); // 애니메이션 표시 상태 설정
+		setTimeout(() => {
+			setShowAnimation(false); // 4초 후 애니메이션 숨기기
+			setShowModal(true);
+		}, 4000);
 	};
 
 	useEffect(() => {
@@ -27,8 +37,11 @@ export default function GamePage() {
 
 	return (
 		<div className={styles.container}>
-			<div>
+			{/* <div>
 				<ShareBtn />
+			</div> */}
+			<div className={styles.floorInfo}>
+				{gameStatus && `${confirmFloor} 층`}
 			</div>
 			{open && (
 				<GamePageModal
@@ -38,7 +51,18 @@ export default function GamePage() {
 					nickName={nickName}
 				/>
 			)}
-			<div>{gameStart && <ApartmentAnimation />}</div>
+			<div className={styles.animation}>
+				{showAnimation && gameStart && <ApartmentAnimation />}
+			</div>
+			{showModal && (
+				<FloorSelectModal
+					setShowModal={setShowModal}
+					setFloor={setFloor}
+					floor={floor}
+					setConfirmFloor={setConfirmFloor}
+					setGameStatus={setGameStatus}
+				/>
+			)}
 			<div className={styles.users}>
 				<div className={styles.left}>
 					<div>{result}</div>
