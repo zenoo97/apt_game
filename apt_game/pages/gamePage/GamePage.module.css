@@ -35,3 +35,29 @@
     font-size: 30px;
     font-weight: bold;
 }
+.button{
+    display: flex;
+    gap:50px
+}
+.button button {
+    all: unset; /* 모든 기본 스타일 제거 */
+    padding: 20px 20px; /* 버튼의 패딩 설정 */
+    /* 필요한 경우 추가 스타일을 설정 */
+    font-size: 16px; /* 글자 크기 설정 */
+    transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
+}
+.leftBtn{
+    background-color: blue;
+    border-radius: 100%;
+}
+.rightBtn{
+    background-color: red;
+    border-radius: 100%;
+
+}
+.leftBtn:hover, .rightBtn:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* 호버 시 배경색 변화 */
+}
+.asd{
+    background-color: red;
+}

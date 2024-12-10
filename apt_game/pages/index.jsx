@@ -13,8 +13,8 @@ export default function Home() {
 			<div>
 				<h1>아파트 게임</h1>
 			</div>
-			<div>
-				<Image src="/logo.jpg" alt="apt_game" width={500} height={500} />
+			<div className={styles.imageContainer}>
+				<Image src="/logo.jpg" alt="apt_game" layout="fill" object="cover" />
 			</div>
 			<button onClick={nextPageHandler}>게임 시작</button>
 		</div>

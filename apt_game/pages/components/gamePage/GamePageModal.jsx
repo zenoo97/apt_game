@@ -1,3 +1,4 @@
+import { supabase } from '../../utils/supabase';
 import styles from './GamePageModal.module.css';
 
 export default function GamePageModal({
@@ -5,10 +6,18 @@ export default function GamePageModal({
 	setNickName,
 	setResult,
 	nickName,
+	parcingValue,
 }) {
+	const postNickName = async () => {
+		const { data, error } = await supabase
+			.from('users')
+			.insert([{ nickname: nickName, roomId: parcingValue }])
+			.select();
+	};
 	const modalHandler = () => {
 		setOpen(false);
 		setResult(nickName);
+		postNickName();
 	};
 	return (
 		<div className={styles.container}>

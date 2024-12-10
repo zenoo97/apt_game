@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './FloorSelectModal.module.css';
 
 export default function FloorSelectModal({
@@ -7,11 +7,13 @@ export default function FloorSelectModal({
 	setConfirmFloor,
 	floor,
 	setGameStatus,
+	setFloorSelected,
 }) {
 	const startGame = () => {
 		setShowModal(false);
 		setConfirmFloor(floor);
 		setGameStatus(true);
+		setFloorSelected(true);
 	};
 	return (
 		<div className={styles.container}>

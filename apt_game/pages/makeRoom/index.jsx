@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './MakeRoom.module.css';
 import Modal from '../components/makeRoom/Modal';
 import { supabase } from '../utils/supabase';
-import ApartmentAnimation from '../components/ApartmentAnimation';
 
 export default function MakeRoom() {
 	const [makeRoom, setMakeRoom] = useState(false);
